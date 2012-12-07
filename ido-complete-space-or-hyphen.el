@@ -110,3 +110,5 @@ Useful to temporary disable withing a function:
   "Disable ido-complete-space-or-hyphen"
   (interactive)
   (setq ido-complete-space-or-hyphen nil))
+
+(provide 'ido-complete-space-or-hyphen)
