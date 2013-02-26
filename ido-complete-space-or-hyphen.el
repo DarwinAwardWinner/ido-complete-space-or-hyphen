@@ -7,7 +7,7 @@
 ;; Filename: ido-complete-space-or-hyphen.el
 ;; Description: Complete SPACE or HYPHEN when type SPACE in ido
 ;; Created: 2012-11-07 13:58
-;; Version: 1.0
+;; Version: 1.1
 ;; Last-Updated: 2012-11-07 13:58
 ;; URL: https://github.com/doitian/ido-complete-space-or-hyphen
 ;; Compatibility: GNU Emacs 24.2.1
@@ -51,6 +51,13 @@
 ;;     (require 'ido-complete-space-or-hyphen)
 ;;     (ido-mode t)
 ;;
+;;; Changes
+;;
+;; -   1.1 (2013-02-27)
+;;
+;;     -  Add `ido-complete-space-or-hyphen--insert-space' to allow user type
+;;        SPACE twice to insert SPCE.
+;;
 
 (eval-when-compile
   (require 'ido))
@@ -62,6 +69,13 @@ Useful to temporary disable withing a function:
 
     (let ((ido-complete-space-or-hyphen nil))
       (ido-completing-read ...))")
+
+(defvar ido-complete-space-or-hyphen--insert-space nil
+  "Internal variable to indicate whether SPACE should be inserted
+when both SPACE and HYPHEN make sence.
+
+It allows user press SPACE twice to insert real SPACE.
+")
 
 (defun ido-complete-space-or-hyphen ()
   "Try completion unless inserting the SPACE or HYPHEN makes sense."
@@ -80,9 +94,18 @@ Useful to temporary disable withing a function:
                   (while comp
                     (setq name (ido-name (car comp)))
                     (if (string-match re name)
-                        ;; If both SPACE and HYPHEN matches, do not insert any
+                        ;; If both SPACE and HYPHEN matches
                         (if (and space-or-hyphen (not (= space-or-hyphen (aref (match-string 1 name) 0))))
-                            (setq comp nil space-or-hyphen nil)
+                            (if ido-complete-space-or-hyphen--insert-space
+                                ;; insert SPACE if user has typed SPACE twice
+                                (setq ido-complete-space-or-hyphen--insert-space nil
+                                      space-or-hyphen 32
+                                      comp nil)
+                              ;; do not insert any the first time, but mark the flag
+                              (setq ido-complete-space-or-hyphen--insert-space t
+                                    space-or-hyphen nil
+                                    comp nil))
+                          (setq comp nil space-or-hyphen nil)
                           (setq space-or-hyphen (aref (match-string 1 name) 0))))
                     (setq comp (cdr comp)))
                   space-or-hyphen))
