@@ -37,13 +37,39 @@
 ;;
 ;; Example:
 ;;
-;; Choises: "ido-foo-bar", "ido-space" "idotest"
+;; Choices: "ido-foo-bar", "ido-space" "ido-test"
 ;;
-;; After you type "i", then SPACE key. The input text is completed to "ido-" and
-;; HYPHEN is inserted for you.
+;;     | Key Sequence | Result |
+;;     |--------------+--------|
+;;     | i            | "i"    |
+;;     | SPACE        | "ido-" |
 ;;
-;; However if the choises are "ido-foo-bar", "ido-space" and "ido test", the input
-;; text is completed to "ido", type SPACE again will insert SPACE.
+;; Choices: "ido-foo-bar", "ido-space" "ido-test"
+
+;;     | Key Sequence | Result |
+;;     |--------------+--------|
+;;     | i            | "i"    |
+;;     | SPACE        | "ido " |
+
+;; Choices: "ido-foo-bar", "ido-space" "idotest"
+
+;;     | Key Sequence | Result |
+;;     |--------------+--------|
+;;     | i            | "i"    |
+;;     | SPACE        | "ido"  |
+;;     | SPACE        | "ido-" |
+
+;; When HYPHEN can be inserted and SPACE cannot, insert HYPHEN when user enter SPACE.
+
+;; Choices: "ido-foo-bar", "ido-space" "ido test"
+
+;;     | Key Sequence | Result |
+;;     |--------------+--------|
+;;     | i            | "i"    |
+;;     | SPACE        | "ido"  |
+;;     | SPACE        | "ido " |
+
+;; If bot HYPHEN and SPACE can be inserted, SPACE just inserts itself.
 
 ;;; Usage
 
