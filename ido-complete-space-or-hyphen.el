@@ -35,29 +35,27 @@
 ;; does, HYPHEN is used as separator. This extension for ido inserts SPACE or
 ;; HYPHEN whenever which one makes sence, just like what built-in M-x does.
 ;;
-;;
 ;; Example:
 ;;
-;; Choises: ido-foo-bar, ido-space idotest
+;; Choises: "ido-foo-bar", "ido-space" "idotest"
 ;;
-;; After you type "ido", then SPACE key. HYPHEN is inserted for you.
+;; After you type "i", then SPACE key. The input text is completed to "ido-" and
+;; HYPHEN is inserted for you.
 ;;
-;; Howver if the choises are "ido-foo-bar", "ido-space" and "ido test", HYPHEN
-;; is not inserted, you have to decided press SPACE or HYPHEN
-;;
+;; However if the choises are "ido-foo-bar", "ido-space" and "ido test", the input
+;; text is completed to "ido", type SPACE again will insert SPACE.
 
 ;;; Usage
 
 ;;     (require 'ido-complete-space-or-hyphen)
 ;;     (ido-mode t)
-;;
+
 ;;; Changes
-;;
+
 ;; -   1.1 (2013-02-27)
 ;;
 ;;     -  Add `ido-complete-space-or-hyphen--insert-space' to allow user type
 ;;        SPACE twice to insert SPCE.
-;;
 
 (eval-when-compile
   (require 'ido))

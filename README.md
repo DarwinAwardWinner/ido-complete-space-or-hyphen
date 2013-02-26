@@ -8,10 +8,11 @@ complete other hyphen separated choises
 
 Choises: "ido-foo-bar", "ido-space" "idotest"
 
-After you type "ido", then SPACE key. HYPHEN is inserted for you.
+After you type "i", then SPACE key. The input text is completed to "ido-" and
+HYPHEN is inserted for you.
 
-Howver if the choises are "ido-foo-bar", "ido-space" and "ido test", HYPHEN
-is not inserted, you have to decided press SPACE or HYPHEN
+However if the choises are "ido-foo-bar", "ido-space" and "ido test", the input
+text is completed to "ido", type SPACE again will insert SPACE.
 
 ## Usage
 
