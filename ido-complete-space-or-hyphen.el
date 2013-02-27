@@ -74,6 +74,13 @@
 
 ;;     (require 'ido-complete-space-or-hyphen)
 ;;     (ido-mode t)
+;;
+;; Recommended packages that can be used together:
+;;
+;; -   [smex](https://github.com/nonsequitur/smex) a M-x enhancement
+;; -   [ido-hacks.el](https://github.com/scottjad/ido-hacks) Use ido anywhere
+;;     and a faster flex search.
+;;
 
 ;;; Changes
 
