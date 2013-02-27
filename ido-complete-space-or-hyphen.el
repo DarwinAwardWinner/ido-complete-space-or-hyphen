@@ -1,16 +1,15 @@
-;;; ido-complete-space-or-hyphen.el -- Complete space or hyphen when type space in ido
-
-;; Copyright (C) 2012 Ian Yang
+;;; ido-complete-space-or-hyphen.el --- Complete SPACE or HYPHEN when type SPACE in ido
 
 ;; Author: Ian Yang <me (at) iany.me>
 ;; Keywords: ido completion
 ;; Filename: ido-complete-space-or-hyphen.el
 ;; Description: Complete SPACE or HYPHEN when type SPACE in ido
 ;; Created: 2012-11-07 13:58
-;; Version: 1.1
-;; Last-Updated: 2012-11-07 13:58
+;; Version: 1.2
+;; Last-Updated: 2013-02-27 18:57
 ;; URL: https://github.com/doitian/ido-complete-space-or-hyphen
-;; Compatibility: GNU Emacs 24.2.1
+
+;;; Licence:
 
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -71,7 +70,7 @@
 
 ;; If bot HYPHEN and SPACE can be inserted, SPACE just inserts itself.
 
-;;; Usage
+;;; Usage:
 
 ;;     (require 'ido-complete-space-or-hyphen)
 ;;     (ido-mode t)
@@ -82,6 +81,8 @@
 ;;
 ;;     -  Add `ido-complete-space-or-hyphen--insert-space' to allow user type
 ;;        SPACE twice to insert SPCE.
+
+;;; Code:
 
 (eval-when-compile
   (require 'ido))
@@ -144,7 +145,8 @@ It allows user press SPACE twice to insert real SPACE.
       (call-interactively 'ido-complete-space-or-hyphen)
     ad-do-it))
 
-;;;###autoload
+
+;;;;###autoload
 (defun ido-complete-space-or-hyphen-enable ()
   "Enable ido-complete-space-or-hyphen"
   (interactive)
@@ -159,3 +161,5 @@ It allows user press SPACE twice to insert real SPACE.
   (setq ido-complete-space-or-hyphen nil))
 
 (provide 'ido-complete-space-or-hyphen)
+
+;;; ido-complete-space-or-hyphen.el ends here
