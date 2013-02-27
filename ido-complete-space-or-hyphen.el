@@ -137,7 +137,6 @@ It allows user press SPACE twice to insert real SPACE.
                               (setq ido-complete-space-or-hyphen--insert-space t
                                     space-or-hyphen nil
                                     comp nil))
-                          (setq comp nil space-or-hyphen nil)
                           (setq space-or-hyphen (aref (match-string 1 name) 0))))
                     (setq comp (cdr comp)))
                   space-or-hyphen))
