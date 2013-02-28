@@ -154,7 +154,7 @@ It allows user press SPACE twice to insert real SPACE.
     ad-do-it))
 
 
-;;;;###autoload
+;;;###autoload
 (defun ido-complete-space-or-hyphen-enable ()
   "Enable ido-complete-space-or-hyphen"
   (interactive)
