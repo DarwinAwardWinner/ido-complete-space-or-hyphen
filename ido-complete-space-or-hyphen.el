@@ -6,7 +6,7 @@
 ;; Description: Complete SPACE or HYPHEN when type SPACE in ido
 ;; Created: 2012-11-07 13:58
 ;; Version: 1.1
-;; Last-Updated: 2013-02-27 18:57
+;; Last-Updated: Sun Apr 12 17:02:49 2015 (-0700)
 ;; URL: https://github.com/doitian/ido-complete-space-or-hyphen
 
 ;;; Licence:
@@ -90,19 +90,37 @@
 ;;
 ;;     -  Add `ido-complete-space-or-hyphen--insert-space' to allow user type
 ;;        SPACE twice to insert SPCE.
+;;
+;; -   1.2
+;;
+;;     -  Convert to a full-fledged minor mode
 
 ;;; Code:
 
 (eval-when-compile
   (require 'ido))
 
-(defvar ido-complete-space-or-hyphen t
-  "Set to nil to disable ido-complete-space-or-hyphen.
+;;;###autoload
+(define-minor-mode ido-complete-space-or-hyphen-mode
+  "Toggle ido-complete-space-or-hyphen mode.
 
-Useful to temporary disable withing a function:
+The default behavior of ido SPACE key will try to insert SPACE if it makes
+sence (a.k.a, the comman part of all matches contains SPACE). Howerver,
+when ido is used to complete lisp functions or variables, like what smex
+does, HYPHEN is used as separator. This extension for ido inserts SPACE or
+HYPHEN whenever which one makes sence, just like what built-in M-x does.
+
+You can also temporary disable ido-complete-space-or-hyphen-mode
+within a function by let-binding this to nil:
 
     (let ((ido-complete-space-or-hyphen nil))
-      (ido-completing-read ...))")
+      (ido-completing-read ...))"
+  t
+  :global t
+  :group 'ido
+  (when ido-complete-space-or-hyphen-mode
+    (ad-enable-advice 'ido-complete-space 'around 'ido-complete-space-or-hyphen)
+    (ad-activate 'ido-complete-space)))
 
 (defvar ido-complete-space-or-hyphen--insert-space nil
   "Internal variable to indicate whether SPACE should be inserted
@@ -149,7 +167,7 @@ It allows user press SPACE twice to insert real SPACE.
 
 ;; replace ido-complete-space with ido-complete-space-or-hyphen
 (defadvice ido-complete-space (around ido-complete-space-or-hyphen () activate compile)
-  (if ido-complete-space-or-hyphen
+  (if ido-complete-space-or-hyphen-mode
       (call-interactively 'ido-complete-space-or-hyphen)
     ad-do-it))
 
@@ -158,15 +176,13 @@ It allows user press SPACE twice to insert real SPACE.
 (defun ido-complete-space-or-hyphen-enable ()
   "Enable ido-complete-space-or-hyphen"
   (interactive)
-  (ad-enable-advice 'ido-complete-space 'around 'ido-complete-space-or-hyphen)
-  (ad-activate 'ido-complete-space)
-  (setq ido-complete-space-or-hyphen t))
+  (ido-complete-space-or-hyphen-mode 1))
 
 ;;;###autoload
 (defun ido-complete-space-or-hyphen-disable ()
   "Disable ido-complete-space-or-hyphen"
   (interactive)
-  (setq ido-complete-space-or-hyphen nil))
+  (ido-complete-space-or-hyphen-mode 1))
 
 (provide 'ido-complete-space-or-hyphen)
 
