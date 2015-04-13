@@ -6,7 +6,7 @@
 ;; Description: Complete SPACE or HYPHEN when type SPACE in ido
 ;; Created: 2012-11-07 13:58
 ;; Version: 1.1
-;; Last-Updated: Sun Apr 12 17:06:11 2015 (-0700)
+;; Last-Updated: Sun Apr 12 17:24:59 2015 (-0700)
 ;; URL: https://github.com/doitian/ido-complete-space-or-hyphen
 
 ;;; Licence:
@@ -29,10 +29,10 @@
 ;;; Commentary:
 
 ;; The default behavior of ido SPACE key will try to insert SPACE if it makes
-;; sence (a.k.a, the comman part of all matches contains SPACE). Howerver,
+;; sense (a.k.a, the comman part of all matches contains SPACE). However,
 ;; when ido is used to complete lisp functions or variables, like what smex
 ;; does, HYPHEN is used as separator. This extension for ido inserts SPACE or
-;; HYPHEN whenever which one makes sence, just like what built-in M-x does.
+;; HYPHEN whenever either one makes sense, just like what built-in M-x does.
 ;;
 ;; Example:
 ;;
@@ -105,10 +105,10 @@
   "Toggle ido-complete-space-or-hyphen mode.
 
 The default behavior of ido SPACE key will try to insert SPACE if it makes
-sence (a.k.a, the comman part of all matches contains SPACE). Howerver,
+sense (a.k.a, the comman part of all matches contains SPACE). Howerver,
 when ido is used to complete lisp functions or variables, like what smex
 does, HYPHEN is used as separator. This extension for ido inserts SPACE or
-HYPHEN whenever which one makes sence, just like what built-in M-x does.
+HYPHEN whenever which one makes sense, just like what built-in M-x does.
 
 You can also temporary disable ido-complete-space-or-hyphen-mode
 within a function by let-binding this to nil:
@@ -128,7 +128,7 @@ within a function by let-binding this to nil:
 
 (defvar ido-complete-space-or-hyphen--insert-space nil
   "Internal variable to indicate whether SPACE should be inserted
-when both SPACE and HYPHEN make sence.
+when both SPACE and HYPHEN make sense.
 
 It allows user press SPACE twice to insert real SPACE.
 ")
