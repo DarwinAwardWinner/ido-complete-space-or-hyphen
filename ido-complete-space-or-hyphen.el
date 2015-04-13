@@ -6,7 +6,7 @@
 ;; Description: Complete SPACE or HYPHEN when type SPACE in ido
 ;; Created: 2012-11-07 13:58
 ;; Version: 1.1
-;; Last-Updated: Sun Apr 12 17:02:49 2015 (-0700)
+;; Last-Updated: Sun Apr 12 17:06:11 2015 (-0700)
 ;; URL: https://github.com/doitian/ido-complete-space-or-hyphen
 
 ;;; Licence:
@@ -115,7 +115,7 @@ within a function by let-binding this to nil:
 
     (let ((ido-complete-space-or-hyphen nil))
       (ido-completing-read ...))"
-  t
+  nil
   :global t
   :group 'ido
   (when ido-complete-space-or-hyphen-mode
