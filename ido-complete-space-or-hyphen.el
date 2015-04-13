@@ -5,8 +5,8 @@
 ;; Filename: ido-complete-space-or-hyphen.el
 ;; Description: Complete SPACE or HYPHEN when type SPACE in ido
 ;; Created: 2012-11-07 13:58
-;; Version: 1.1
-;; Last-Updated: Sun Apr 12 17:24:59 2015 (-0700)
+;; Version: 1.2
+;; Last-Updated: Sun Apr 12 17:34:51 2015 (-0700)
 ;; URL: https://github.com/doitian/ido-complete-space-or-hyphen
 
 ;;; Licence:
