@@ -121,6 +121,10 @@ within a function by let-binding this to nil:
   (when ido-complete-space-or-hyphen-mode
     (ad-enable-advice 'ido-complete-space 'around 'ido-complete-space-or-hyphen)
     (ad-activate 'ido-complete-space)))
+(define-obsolete-variable-alias
+  'ido-complete-space-or-hyphen
+  'ido-complete-space-or-hyphen-mode
+  "ido-complete-space-or-hyphen 1.2")
 
 (defvar ido-complete-space-or-hyphen--insert-space nil
   "Internal variable to indicate whether SPACE should be inserted
@@ -177,12 +181,18 @@ It allows user press SPACE twice to insert real SPACE.
   "Enable ido-complete-space-or-hyphen"
   (interactive)
   (ido-complete-space-or-hyphen-mode 1))
+(make-obsolete
+ 'ido-complete-space-or-hyphen-enable
+ "use `(ido-complete-space-or-hyphen-mode 1)' instead.")
 
 ;;;###autoload
 (defun ido-complete-space-or-hyphen-disable ()
   "Disable ido-complete-space-or-hyphen"
   (interactive)
   (ido-complete-space-or-hyphen-mode 1))
+(make-obsolete
+ 'ido-complete-space-or-hyphen-enable
+ "use `(ido-complete-space-or-hyphen-mode 0)' instead.")
 
 (provide 'ido-complete-space-or-hyphen)
 
