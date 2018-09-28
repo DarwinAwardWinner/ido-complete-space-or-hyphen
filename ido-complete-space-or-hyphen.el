@@ -6,7 +6,7 @@
 ;; Description: Complete SPACE or HYPHEN when type SPACE in ido
 ;; Created: 2012-11-07 13:58
 ;; Version: 1.2
-;; Last-Updated: Sun Apr 12 17:34:51 2015 (-0700)
+;; Last-Updated: Fri Sep 28 06:19:26 2018 (-0700)
 ;; URL: https://github.com/doitian/ido-complete-space-or-hyphen
 
 ;;; Licence:
@@ -110,10 +110,10 @@ when ido is used to complete lisp functions or variables, like what smex
 does, HYPHEN is used as separator. This extension for ido inserts SPACE or
 HYPHEN whenever which one makes sense, just like what built-in M-x does.
 
-You can also temporary disable ido-complete-space-or-hyphen-mode
+You can also temporarily disable ido-complete-space-or-hyphen-mode
 within a function by let-binding this to nil:
 
-    (let ((ido-complete-space-or-hyphen nil))
+    (let ((ido-complete-space-or-hyphen-mode nil))
       (ido-completing-read ...))"
   nil
   :global t
