@@ -6,7 +6,7 @@
 ;; Description: Complete SPACE or HYPHEN when type SPACE in ido
 ;; Created: 2012-11-07 13:58
 ;; Version: 1.2
-;; Last-Updated: Fri Sep 28 06:19:26 2018 (-0700)
+;; Last-Updated: Mon Jan 18 13:33:37 2021 (-0500)
 ;; URL: https://github.com/doitian/ido-complete-space-or-hyphen
 
 ;;; Licence:
@@ -183,7 +183,8 @@ It allows user press SPACE twice to insert real SPACE.
   (ido-complete-space-or-hyphen-mode 1))
 (make-obsolete
  'ido-complete-space-or-hyphen-enable
- "use `(ido-complete-space-or-hyphen-mode 1)' instead.")
+ "use `(ido-complete-space-or-hyphen-mode 1)' instead."
+ "ido-complete-space-or-hyphen 1.2")
 
 ;;;###autoload
 (defun ido-complete-space-or-hyphen-disable ()
@@ -191,8 +192,9 @@ It allows user press SPACE twice to insert real SPACE.
   (interactive)
   (ido-complete-space-or-hyphen-mode 1))
 (make-obsolete
- 'ido-complete-space-or-hyphen-enable
- "use `(ido-complete-space-or-hyphen-mode 0)' instead.")
+ 'ido-complete-space-or-hyphen-disable
+ "use `(ido-complete-space-or-hyphen-mode 0)' instead."
+ "ido-complete-space-or-hyphen 1.2")
 
 (provide 'ido-complete-space-or-hyphen)
 
