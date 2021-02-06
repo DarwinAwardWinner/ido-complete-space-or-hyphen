@@ -1,13 +1,14 @@
-;;; ido-complete-space-or-hyphen.el --- Complete SPACE or HYPHEN when type SPACE in ido
+;;; ido-complete-space-or-hyphen.el --- Allow spaces to also match hyphens in ido
 
-;; Author: Ian Yang <me (at) iany.me>
-;; Keywords: ido completion
+;; Author: Ryan C. Thompson <rct@thompsonclan.org>
+;;         Ian Yang <me (at) iany.me>
+;; Maintainer: Ryan C. Thompson <rct@thompsonclan.org>
+;; Keywords: ido, completion, convenience
 ;; Filename: ido-complete-space-or-hyphen.el
-;; Description: Complete SPACE or HYPHEN when type SPACE in ido
-;; Created: 2012-11-07 13:58
 ;; Version: 1.3
-;; Last-Updated: Sat Feb  6 09:53:55 2021 (-0500)
-;; URL: https://github.com/doitian/ido-complete-space-or-hyphen
+;; URL: https://github.com/DarwinAwardWinner/ido-complete-space-or-hyphen
+;; Created: 2012-11-07 13:58
+;; Last-Updated: Sat Feb  6 10:05:06 2021 (-0500)
 
 ;;; Licence:
 
