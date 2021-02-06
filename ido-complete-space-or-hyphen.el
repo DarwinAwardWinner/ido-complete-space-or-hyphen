@@ -6,7 +6,7 @@
 ;; Description: Complete SPACE or HYPHEN when type SPACE in ido
 ;; Created: 2012-11-07 13:58
 ;; Version: 1.2
-;; Last-Updated: Mon Jan 18 13:33:37 2021 (-0500)
+;; Last-Updated: Sat Feb  6 09:52:13 2021 (-0500)
 ;; URL: https://github.com/doitian/ido-complete-space-or-hyphen
 
 ;;; Licence:
@@ -75,13 +75,14 @@
 ;;; Usage:
 
 ;;     (require 'ido-complete-space-or-hyphen)
-;;     (ido-mode t)
+;;     (ido-mode 1)
+;;     (ido-complete-space-or-hyphen-mode 1)
 ;;
 ;; Recommended packages that can be used together:
 ;;
+;; -   [ido-completing-read+](https://github.com/DarwinAwardWinner/ido-completing-read-plus) Use ido completion wherever possible
 ;; -   [smex](https://github.com/nonsequitur/smex) a M-x enhancement
-;; -   [ido-hacks.el](https://github.com/scottjad/ido-hacks) Use ido anywhere
-;;     and a faster flex search.
+;; -   [amx](https://github.com/DarwinAwardWinner/amx) another ido-based M-x
 ;;
 
 ;;; Changes
@@ -89,7 +90,7 @@
 ;; -   1.1 (2013-02-27)
 ;;
 ;;     -  Add `ido-complete-space-or-hyphen--insert-space' to allow user type
-;;        SPACE twice to insert SPCE.
+;;        SPACE twice to insert SPACE.
 ;;
 ;; -   1.2
 ;;
