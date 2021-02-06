@@ -8,13 +8,16 @@ complete other hyphen separated choices
 
 -   Get `ido-complete-space-or-hyphen`
 
-    -   Via package.el and [MELPA](http://melpa.milkbox.net/)
-    -   Or manually download and set-up your load path. [(Find out more.)][http://www.emacswiki.org/emacs/InstallingPackages]
+    -   Via package.el and [MELPA](https://stable.melpa.org/)
+    -   Or manually download and set-up your load path. [(Find out more.)](http://www.emacswiki.org/emacs/InstallingPackages)
 
 -   Add following lines to your .emacs file:
 
         (require 'ido-complete-space-or-hyphen)
-        (ido-mode t)
+        ;; Enable ido-mode
+        (ido-mode 1)
+        ;; Enable this mode
+        (ido-complete-space-or-hyphen-mode 1)
 
 Then try examples below, or use it with [smex](https://github.com/nonsequitur/smex).
 
